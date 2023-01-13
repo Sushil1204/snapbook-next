@@ -1,14 +1,20 @@
 import React from "react";
 import Card from "./Card";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Navigation = () => {
-  const activeElement = 'flex py-3 bg-socialBlue -mx-10 px-10 rounded-md shadow-md shadow-gray-300';
-  const nonActiveElement = 'flex py-2 my-2 hover:bg-blue-500 hover:bg-opacity-20 -mx-4 px-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300';
+  const router = useRouter();
+  const { pathname } = router;
+  console.log(pathname);
+
+  const activeElementClasses = 'flex py-3 my-1 bg-socialBlue -mx-10 px-10 rounded-md shadow-md shadow-gray-300';
+  const nonActiveElementClasses = 'flex py-2 my-2 hover:bg-blue-500 hover:bg-opacity-20 -mx-4 px-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300';
   return (
     <Card>
       <div className="px-4">
         <h2 className="text-gray-400 mb-3">Navigation</h2>
-        <a href="" className={activeElement}>
+        <Link href="/" className={pathname==='/' ? activeElementClasses : nonActiveElementClasses}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -24,8 +30,8 @@ const Navigation = () => {
             />
           </svg>
           Home
-        </a>
-        <a href="" className={nonActiveElement}>
+        </Link>
+        <Link href="" className={nonActiveElementClasses}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -41,8 +47,8 @@ const Navigation = () => {
             />
           </svg>
           Friends
-        </a>
-        <a href="" className={nonActiveElement}>
+        </Link>
+        <Link href="" className={nonActiveElementClasses}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -58,8 +64,8 @@ const Navigation = () => {
             />
           </svg>
           Saved Post
-        </a>
-        <a href="" className={nonActiveElement}>
+        </Link>
+        <Link href="" className={nonActiveElementClasses}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -75,8 +81,8 @@ const Navigation = () => {
             />
           </svg>
           Notifications
-        </a>
-        <a href="" className={nonActiveElement}>
+        </Link>
+        <Link href="" className={nonActiveElementClasses}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -92,7 +98,7 @@ const Navigation = () => {
             />
           </svg>
           Logout
-        </a>
+        </Link>
       </div>
     </Card>
   );

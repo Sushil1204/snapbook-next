@@ -1,19 +1,13 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Card from "./Card";
+import Avatar from "./Avatar";
 
 const PostForm = () => {
   return (
     <Card>
       <div className=" flex items-center">
         <div className="">
-          <div className="h-12 w-12 mb-4 lg:mb-0 mr-4">
-            <img
-              src="https://tuk-cdn.s3.amazonaws.com/assets/components/avatars/a_3_6.png"
-              alt="avatar"
-              className="h-full w-full rounded-full overflow-hidden shadow"
-            />
-          </div>
+          <Avatar/>
         </div>
         <textarea
           name="post"
